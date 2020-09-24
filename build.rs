@@ -5,7 +5,7 @@ use std::io::Write;
 use std::path::Path;
 use std::process::Command;
 
-extern crate gcc;
+extern crate cc;
 extern crate bindgen;
 
 fn main() {
@@ -162,7 +162,7 @@ fn build_libwxc() {
 		"wrapper.cpp", 
 	];
 
-	let mut config = gcc::Config::new();
+	let mut config = cc::Build::new();
 	for flag in wx_config(&["--cxxflags"]).split_whitespace() {
 		config.flag(flag);
 	}
@@ -208,51 +208,56 @@ fn export_linker_flags() {
 
 struct BindgenLogger;
 
-impl bindgen::Logger for BindgenLogger {
-    fn error(&self, msg: &str) {
-        println!("bindgen error:  {}", msg);
-    }
-
-    fn warn(&self, msg: &str) {
-        println!("bindgen warning: {}", msg);
-    }
-}
-
 fn generate_unsafe_rs() {
     println!("build.rs : generate unsafe rs");
 
-    let logger = BindgenLogger;
-    let mut bindings = bindgen::builder();
-    bindings.forbid_unknown_types();
-    bindings.log(&logger);
+    //let logger = BindgenLogger;
+	//let bindings = bindgen::builder();
+	let bindings = bindgen::Builder::default()
+	.generate_inline_functions(true)
+	.derive_default(true)
+	.clang_arg("-I/usr/include/wx-3.0")
+	.clang_arg("-I/usr/lib64/wx/include/gtk2-unicode-3.0")
+	.clang_arg("-D_FILE_OFFSET_BITS=64")
+	.clang_arg("-DwxDEBUG_LEVEL=0")
+	.clang_arg("-DWXUSINGDLL")
+	.clang_arg("-D__WXGTK__")
+	.clang_arg("-pthread")
+	.clang_arg("-x")
+	.clang_arg("c++") 
+	.clang_arg("--include")
+	.clang_arg("stdint.h")
+	.clang_arg("--include")
+	.clang_arg("time.h")
+	.clang_arg("wxHaskell/wxc/src/include/wxc.h")
+	.opaque_type("std::.*")
+	.whitelist_type("seal::.*")
+	.whitelist_function("seal::.*")
+	.generate()
+	.expect("Unable to generate bindings");;
+				   
+    //bindings.forbid_unknown_types();
+    //bindings.log(&logger);
 
     
-	for flag in wx_config(&["--cxxflags"]).split_whitespace() {
-		bindings.clang_arg(flag);
-	}
+/* 	for flag1 in wx_config(&["--cxxflags"]).split_whitespace() {
+		bindings.clang_arg(flag1);
+	} */
 
-    let args = [
+/*     let args = [
         "-x", "c++", 
         "--include", "stdint.h",
         "--include", "time.h",
         "wxHaskell/wxc/src/include/wxc.h"
-    ];
+    ]; */
 
-	for flag in args.iter() {
-		bindings.clang_arg(*flag);
-	}
+	//args.iter().for_each(|(i, flag2)| println!("{}:{}", i, flag2));//bindings.clang_arg(flag2));
+/* 	for flag2 in args.iter() {
+		println!("{}", flag2);
+		bindings.clang_arg(*flag2);
+	} */
 
-    match bindgen::get_include_dir() {
-        Some(path) => {
-            bindings.clang_arg("-I");
-            bindings.clang_arg(path);
-        }
-        None => (),
-    }
-
-    bindings.match_pat("wxc");
-
-    let binding = bindings.generate().unwrap();
+    // let binding = bindings.generate().unwrap();
 
 	let root_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
 	let unsafe_rs = Path::new(&root_dir).join("src").join("_unsafe.rs");
@@ -261,7 +266,7 @@ fn generate_unsafe_rs() {
     file.write_all("/* added by build.rs */\n".as_bytes()).unwrap();
     file.write_all("use libc::*;\n\n".as_bytes()).unwrap();
 
-    binding.write(Box::new(file)).unwrap();
+    // binding.write(Box::new(file)).unwrap();
     
     println!("build.rs : generate unsafe rs - done");
 }
