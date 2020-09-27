@@ -9,12 +9,12 @@ extern crate cc;
 extern crate bindgen;
 
 fn main() {
-    update_submodules();
+    // update_submodules();
     patch_wxc_glue();
 	build_libwxc();
     export_linker_flags();
-	generate_unsafe_rs();
-	generate_other_rs();
+	// generate_unsafe_rs();
+	// generate_other_rs();
 }
 
 fn update_submodules() {
@@ -206,44 +206,44 @@ fn export_linker_flags() {
 }
 
 
-struct BindgenLogger;
+// struct BindgenLogger;
 
 fn generate_unsafe_rs() {
     println!("build.rs : generate unsafe rs");
 
-    //let logger = BindgenLogger;
+	//let logger = BindgenLogger;
 	//let bindings = bindgen::builder();
 	let bindings = bindgen::Builder::default()
 	.generate_inline_functions(true)
 	.derive_default(true)
 	.clang_arg("-I/usr/include/wx-3.0")
 	.clang_arg("-I/usr/lib64/wx/include/gtk2-unicode-3.0")
+	.clang_arg("-I./")
+	.clang_arg("-I./src")
 	.clang_arg("-D_FILE_OFFSET_BITS=64")
 	.clang_arg("-DwxDEBUG_LEVEL=0")
 	.clang_arg("-DWXUSINGDLL")
 	.clang_arg("-D__WXGTK__")
 	.clang_arg("-pthread")
-	.clang_arg("-x")
-	.clang_arg("c++") 
 	.clang_arg("--include")
 	.clang_arg("stdint.h")
 	.clang_arg("--include")
 	.clang_arg("time.h")
-	.clang_arg("wxHaskell/wxc/src/include/wxc.h")
+	// .header("wxHaskell/wxc/src/include/wrapper.h")
+	.header("src/wrapper.h")
 	.opaque_type("std::.*")
 	.whitelist_type("seal::.*")
 	.whitelist_function("seal::.*")
 	.generate()
-	.expect("Unable to generate bindings");;
+	.expect("Unable to generate bindings");
 				   
     //bindings.forbid_unknown_types();
     //bindings.log(&logger);
 
-    
+	println!("build.rs : generated the builder {} : {}\n\n\n\n---------------------------------------------", line!(), bindings.to_string());
 /* 	for flag1 in wx_config(&["--cxxflags"]).split_whitespace() {
 		bindings.clang_arg(flag1);
 	} */
-
 /*     let args = [
         "-x", "c++", 
         "--include", "stdint.h",
@@ -264,10 +264,10 @@ fn generate_unsafe_rs() {
 	let mut file = File::create(&unsafe_rs).unwrap();
 
     file.write_all("/* added by build.rs */\n".as_bytes()).unwrap();
-    file.write_all("use libc::*;\n\n".as_bytes()).unwrap();
-
-    // binding.write(Box::new(file)).unwrap();
-    
+	file.write_all("use libc::*;\n\n".as_bytes()).unwrap();
+	// file.write_all(bindings.to_string().as_bytes()).unwrap();
+	
+	bindings.write_to_file("src/_unsafe2.rs").expect("couldn't write bindings!");
     println!("build.rs : generate unsafe rs - done");
 }
 

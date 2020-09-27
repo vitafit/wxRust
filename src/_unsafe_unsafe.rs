@@ -1,30 +1,30 @@
 /* added by build.rs */
 use libc::*;
 
-pub type int_least8_t = i8;
-pub type int_least16_t = i16;
-pub type int_least32_t = i32;
-pub type int_least64_t = i64;
-pub type uint_least8_t = u8;
-pub type uint_least16_t = u16;
-pub type uint_least32_t = u32;
-pub type uint_least64_t = u64;
-pub type int_fast8_t = i8;
-pub type int_fast16_t = i16;
-pub type int_fast32_t = i32;
-pub type int_fast64_t = i64;
-pub type uint_fast8_t = u8;
-pub type uint_fast16_t = u16;
-pub type uint_fast32_t = u32;
-pub type uint_fast64_t = u64;
-pub type __i8 = ::libc::c_char;
-pub type __u8 = ::libc::c_uchar;
-pub type __i16 = ::libc::c_short;
-pub type __u16 = ::libc::c_ushort;
-pub type __i32 = ::libc::c_int;
-pub type __u32 = ::libc::c_uint;
-pub type __i64 = ::libc::c_longlong;
-pub type __u64 = ::libc::c_ulonglong;
+pub type int_least8_t = int8_t;
+pub type int_least16_t = int16_t;
+pub type int_least32_t = int32_t;
+pub type int_least64_t = int64_t;
+pub type uint_least8_t = uint8_t;
+pub type uint_least16_t = uint16_t;
+pub type uint_least32_t = uint32_t;
+pub type uint_least64_t = uint64_t;
+pub type int_fast8_t = int8_t;
+pub type int_fast16_t = int16_t;
+pub type int_fast32_t = int32_t;
+pub type int_fast64_t = int64_t;
+pub type uint_fast8_t = uint8_t;
+pub type uint_fast16_t = uint16_t;
+pub type uint_fast32_t = uint32_t;
+pub type uint_fast64_t = uint64_t;
+pub type __int8_t = ::libc::c_char;
+pub type __uint8_t = ::libc::c_uchar;
+pub type __int16_t = ::libc::c_short;
+pub type __uint16_t = ::libc::c_ushort;
+pub type __int32_t = ::libc::c_int;
+pub type __uint32_t = ::libc::c_uint;
+pub type __int64_t = ::libc::c_longlong;
+pub type __uint64_t = ::libc::c_ulonglong;
 pub type __darwin_intptr_t = ::libc::c_long;
 pub type __darwin_natural_t = ::libc::c_uint;
 pub type __darwin_ct_rune_t = ::libc::c_int;
@@ -55,27 +55,27 @@ pub type __darwin_wchar_t = ::libc::c_int;
 pub type __darwin_rune_t = __darwin_wchar_t;
 pub type __darwin_wint_t = ::libc::c_int;
 pub type __darwin_clock_t = ::libc::c_ulong;
-pub type __darwin_socklen_t = __u32;
+pub type __darwin_socklen_t = __uint32_t;
 pub type __darwin_ssize_t = ::libc::c_long;
 pub type __darwin_time_t = ::libc::c_long;
-pub type __darwin_blkcnt_t = __i64;
-pub type __darwin_blksize_t = __i32;
-pub type __darwin_dev_t = __i32;
+pub type __darwin_blkcnt_t = __int64_t;
+pub type __darwin_blksize_t = __int32_t;
+pub type __darwin_dev_t = __int32_t;
 pub type __darwin_fsblkcnt_t = ::libc::c_uint;
 pub type __darwin_fsfilcnt_t = ::libc::c_uint;
-pub type __darwin_gid_t = __u32;
-pub type __darwin_id_t = __u32;
-pub type __darwin_ino64_t = __u64;
+pub type __darwin_gid_t = __uint32_t;
+pub type __darwin_id_t = __uint32_t;
+pub type __darwin_ino64_t = __uint64_t;
 pub type __darwin_ino_t = __darwin_ino64_t;
 pub type __darwin_mach_port_name_t = __darwin_natural_t;
 pub type __darwin_mach_port_t = __darwin_mach_port_name_t;
-pub type __darwin_mode_t = __u16;
-pub type __darwin_off_t = __i64;
-pub type __darwin_pid_t = __i32;
-pub type __darwin_sigset_t = __u32;
-pub type __darwin_suseconds_t = __i32;
-pub type __darwin_uid_t = __u32;
-pub type __darwin_useconds_t = __u32;
+pub type __darwin_mode_t = __uint16_t;
+pub type __darwin_off_t = __int64_t;
+pub type __darwin_pid_t = __int32_t;
+pub type __darwin_sigset_t = __uint32_t;
+pub type __darwin_suseconds_t = __int32_t;
+pub type __darwin_uid_t = __uint32_t;
+pub type __darwin_useconds_t = __uint32_t;
 pub type __darwin_uuid_t = [::libc::c_uchar; 16usize];
 pub type __darwin_uuid_string_t = [::libc::c_char; 37usize];
 #[repr(C)]
@@ -234,7 +234,7 @@ pub type __darwin_pthread_rwlockattr_t = Struct__opaque_pthread_rwlockattr_t;
 pub type __darwin_pthread_t = *mut Struct__opaque_pthread_t;
 pub type __darwin_nl_item = ::libc::c_int;
 pub type __darwin_wctrans_t = ::libc::c_int;
-pub type __darwin_wctype_t = __u32;
+pub type __darwin_wctype_t = __uint32_t;
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct_timespec {
@@ -1872,24 +1872,24 @@ extern "C" {
                                       logOff: ::libc::c_int) -> ();
     pub fn wxCloseEvent_Veto(_obj: *mut ::libc::c_void, veto: ::libc::c_int)
      -> ();
-    pub fn wxColour_Alpha(_obj: *mut ::libc::c_void) -> u8;
+    pub fn wxColour_Alpha(_obj: *mut ::libc::c_void) -> uint8_t;
     pub fn wxColour_Assign(_obj: *mut ::libc::c_void,
                            other: *mut ::libc::c_void) -> ();
-    pub fn wxColour_Blue(_obj: *mut ::libc::c_void) -> u8;
+    pub fn wxColour_Blue(_obj: *mut ::libc::c_void) -> uint8_t;
     pub fn wxColour_Copy(_obj: *mut ::libc::c_void,
                          _other: *mut ::libc::c_void) -> ();
     pub fn wxColour_CreateByName(_name: *mut ::libc::c_void)
      -> *mut ::libc::c_void;
     pub fn wxColour_CreateEmpty() -> *mut ::libc::c_void;
     pub fn wxColour_CreateFromStock(id: ::libc::c_int) -> *mut ::libc::c_void;
-    pub fn wxColour_CreateRGB(_red: u8, _green: u8, _blue: u8,
-                              _alpha: u8) -> *mut ::libc::c_void;
+    pub fn wxColour_CreateRGB(_red: uint8_t, _green: uint8_t, _blue: uint8_t,
+                              _alpha: uint8_t) -> *mut ::libc::c_void;
     pub fn wxColour_Delete(_obj: *mut ::libc::c_void) -> ();
-    pub fn wxColour_Green(_obj: *mut ::libc::c_void) -> u8;
+    pub fn wxColour_Green(_obj: *mut ::libc::c_void) -> uint8_t;
     pub fn wxColour_IsOk(_obj: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn wxColour_Red(_obj: *mut ::libc::c_void) -> u8;
-    pub fn wxColour_Set(_obj: *mut ::libc::c_void, _red: u8,
-                        _green: u8, _blue: u8, _alpha: u8)
+    pub fn wxColour_Red(_obj: *mut ::libc::c_void) -> uint8_t;
+    pub fn wxColour_Set(_obj: *mut ::libc::c_void, _red: uint8_t,
+                        _green: uint8_t, _blue: uint8_t, _alpha: uint8_t)
      -> ();
     pub fn wxColour_SetByName(_obj: *mut ::libc::c_void,
                               _name: *mut ::libc::c_void) -> ();
@@ -4190,9 +4190,9 @@ extern "C" {
     pub fn wxImage_Paste(_obj: *mut ::libc::c_void,
                          image: *mut ::libc::c_void, x: ::libc::c_int,
                          y: ::libc::c_int) -> ();
-    pub fn wxImage_Replace(_obj: *mut ::libc::c_void, r1: u8,
-                           g1: u8, b1: u8, r2: u8, g2: u8,
-                           b2: u8) -> ();
+    pub fn wxImage_Replace(_obj: *mut ::libc::c_void, r1: uint8_t,
+                           g1: uint8_t, b1: uint8_t, r2: uint8_t, g2: uint8_t,
+                           b2: uint8_t) -> ();
     pub fn wxImage_Rescale(_obj: *mut ::libc::c_void, width: ::libc::c_int,
                            height: ::libc::c_int) -> ();
     pub fn wxImage_Rotate(_obj: *mut ::libc::c_void, angle: ::libc::c_double,
@@ -4217,8 +4217,8 @@ extern "C" {
                                   new_height: ::libc::c_int) -> ();
     pub fn wxImage_SetMask(_obj: *mut ::libc::c_void, mask: ::libc::c_int)
      -> ();
-    pub fn wxImage_SetMaskColour(_obj: *mut ::libc::c_void, r: u8,
-                                 g: u8, b: u8) -> ();
+    pub fn wxImage_SetMaskColour(_obj: *mut ::libc::c_void, r: uint8_t,
+                                 g: uint8_t, b: uint8_t) -> ();
     pub fn wxImage_SetOption(_obj: *mut ::libc::c_void,
                              name: *mut ::libc::c_void,
                              value: *mut ::libc::c_void) -> ();
@@ -4226,8 +4226,8 @@ extern "C" {
                                 name: *mut ::libc::c_void,
                                 value: ::libc::c_int) -> ();
     pub fn wxImage_SetRGB(_obj: *mut ::libc::c_void, x: ::libc::c_int,
-                          y: ::libc::c_int, r: u8, g: u8,
-                          b: u8) -> ();
+                          y: ::libc::c_int, r: uint8_t, g: uint8_t,
+                          b: uint8_t) -> ();
     pub fn wxImageList_AddBitmap(_obj: *mut ::libc::c_void,
                                  bitmap: *mut ::libc::c_void,
                                  mask: *mut ::libc::c_void) -> ::libc::c_int;
@@ -5501,8 +5501,8 @@ extern "C" {
                                blue: *mut ::libc::c_void)
      -> *mut ::libc::c_void;
     pub fn wxPalette_Delete(_obj: *mut ::libc::c_void) -> ();
-    pub fn wxPalette_GetPixel(_obj: *mut ::libc::c_void, red: u8,
-                              green: u8, blue: u8) -> ::libc::c_int;
+    pub fn wxPalette_GetPixel(_obj: *mut ::libc::c_void, red: uint8_t,
+                              green: uint8_t, blue: uint8_t) -> ::libc::c_int;
     pub fn wxPalette_GetRGB(_obj: *mut ::libc::c_void, pixel: ::libc::c_int,
                             red: *mut ::libc::c_void,
                             green: *mut ::libc::c_void,
@@ -8258,8 +8258,6 @@ extern "C" {
      -> *mut ::libc::c_void;
     pub fn wxManagedPtr_CreateFromPen(obj: *mut ::libc::c_void)
      -> *mut ::libc::c_void;
-    pub fn wxManagedPtr_GetDeleteFunction()
-     -> *mut ::libc::c_void;
     pub fn wxObject_SafeDelete(_self: *mut ::libc::c_void) -> ();
     pub fn wxBitmap_SafeDelete(_self: *mut ::libc::c_void) -> ();
     pub fn wxIcon_SafeDelete(_self: *mut ::libc::c_void) -> ();
@@ -8291,7 +8289,7 @@ extern "C" {
     pub fn wxMediaCtrl_GetVolume(_self: *mut ::libc::c_void)
      -> ::libc::c_double;
     pub fn wxMediaCtrl_GetState(_self: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn wxMediaCtrl_Length(_self: *mut ::libc::c_void) -> i64;
+    pub fn wxMediaCtrl_Length(_self: *mut ::libc::c_void) -> int64_t;
     pub fn wxMediaCtrl_Load(_self: *mut ::libc::c_void,
                             fileName: *mut ::libc::c_void) -> ::libc::c_int;
     pub fn wxMediaCtrl_LoadURI(_self: *mut ::libc::c_void,
@@ -8302,8 +8300,8 @@ extern "C" {
      -> ::libc::c_int;
     pub fn wxMediaCtrl_Pause(_self: *mut ::libc::c_void) -> ::libc::c_int;
     pub fn wxMediaCtrl_Play(_self: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn wxMediaCtrl_Seek(_self: *mut ::libc::c_void, offsetWhere: i64,
-                            mode: ::libc::c_int) -> i64;
+    pub fn wxMediaCtrl_Seek(_self: *mut ::libc::c_void, offsetWhere: int64_t,
+                            mode: ::libc::c_int) -> int64_t;
     pub fn wxMediaCtrl_SetPlaybackRate(_self: *mut ::libc::c_void,
                                        dRate: ::libc::c_double)
      -> ::libc::c_int;
@@ -8313,7 +8311,7 @@ extern "C" {
                                           flags: ::libc::c_int)
      -> ::libc::c_int;
     pub fn wxMediaCtrl_Stop(_self: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn wxMediaCtrl_Tell(_self: *mut ::libc::c_void) -> i64;
+    pub fn wxMediaCtrl_Tell(_self: *mut ::libc::c_void) -> int64_t;
     pub fn wxPreviewFrame_Create(preview: *mut ::libc::c_void,
                                  parent: *mut ::libc::c_void,
                                  title: *mut ::libc::c_void, x: ::libc::c_int,
@@ -8473,22 +8471,22 @@ extern "C" {
     pub fn wxStyledTextCtrl_MarkerDefine(_obj: *mut ::libc::c_void,
                                          markerNumber: ::libc::c_int,
                                          markerSymbol: ::libc::c_int,
-                                         foreground_r: u8,
-                                         foreground_g: u8,
-                                         foreground_b: u8,
-                                         background_r: u8,
-                                         background_g: u8,
-                                         background_b: u8) -> ();
+                                         foreground_r: uint8_t,
+                                         foreground_g: uint8_t,
+                                         foreground_b: uint8_t,
+                                         background_r: uint8_t,
+                                         background_g: uint8_t,
+                                         background_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_MarkerSetForeground(_obj: *mut ::libc::c_void,
                                                 markerNumber: ::libc::c_int,
-                                                fore_r: u8,
-                                                fore_g: u8,
-                                                fore_b: u8) -> ();
+                                                fore_r: uint8_t,
+                                                fore_g: uint8_t,
+                                                fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_MarkerSetBackground(_obj: *mut ::libc::c_void,
                                                 markerNumber: ::libc::c_int,
-                                                back_r: u8,
-                                                back_g: u8,
-                                                back_b: u8) -> ();
+                                                back_r: uint8_t,
+                                                back_g: uint8_t,
+                                                back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_MarkerAdd(_obj: *mut ::libc::c_void,
                                       line: ::libc::c_int,
                                       markerNumber: ::libc::c_int)
@@ -8541,14 +8539,14 @@ extern "C" {
     pub fn wxStyledTextCtrl_StyleClearAll(_obj: *mut ::libc::c_void) -> ();
     pub fn wxStyledTextCtrl_StyleSetForeground(_obj: *mut ::libc::c_void,
                                                style: ::libc::c_int,
-                                               fore_r: u8,
-                                               fore_g: u8,
-                                               fore_b: u8) -> ();
+                                               fore_r: uint8_t,
+                                               fore_g: uint8_t,
+                                               fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_StyleSetBackground(_obj: *mut ::libc::c_void,
                                                style: ::libc::c_int,
-                                               back_r: u8,
-                                               back_g: u8,
-                                               back_b: u8) -> ();
+                                               back_r: uint8_t,
+                                               back_g: uint8_t,
+                                               back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_StyleSetBold(_obj: *mut ::libc::c_void,
                                          style: ::libc::c_int,
                                          bold: ::libc::c_int) -> ();
@@ -8582,16 +8580,16 @@ extern "C" {
                                             hotspot: ::libc::c_int) -> ();
     pub fn wxStyledTextCtrl_SetSelForeground(_obj: *mut ::libc::c_void,
                                              useSetting: ::libc::c_int,
-                                             fore_r: u8, fore_g: u8,
-                                             fore_b: u8) -> ();
+                                             fore_r: uint8_t, fore_g: uint8_t,
+                                             fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetSelBackground(_obj: *mut ::libc::c_void,
                                              useSetting: ::libc::c_int,
-                                             back_r: u8, back_g: u8,
-                                             back_b: u8) -> ();
+                                             back_r: uint8_t, back_g: uint8_t,
+                                             back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetCaretForeground(_obj: *mut ::libc::c_void,
-                                               fore_r: u8,
-                                               fore_g: u8,
-                                               fore_b: u8) -> ();
+                                               fore_r: uint8_t,
+                                               fore_g: uint8_t,
+                                               fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_CmdKeyAssign(_obj: *mut ::libc::c_void,
                                          key: ::libc::c_int,
                                          modifiers: ::libc::c_int,
@@ -8625,19 +8623,19 @@ extern "C" {
      -> ::libc::c_int;
     pub fn wxStyledTextCtrl_IndicatorSetForeground(_obj: *mut ::libc::c_void,
                                                    indic: ::libc::c_int,
-                                                   fore_r: u8,
-                                                   fore_g: u8,
-                                                   fore_b: u8) -> ();
+                                                   fore_r: uint8_t,
+                                                   fore_g: uint8_t,
+                                                   fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetWhitespaceForeground(_obj: *mut ::libc::c_void,
                                                     useSetting: ::libc::c_int,
-                                                    fore_r: u8,
-                                                    fore_g: u8,
-                                                    fore_b: u8) -> ();
+                                                    fore_r: uint8_t,
+                                                    fore_g: uint8_t,
+                                                    fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetWhitespaceBackground(_obj: *mut ::libc::c_void,
                                                     useSetting: ::libc::c_int,
-                                                    back_r: u8,
-                                                    back_g: u8,
-                                                    back_b: u8) -> ();
+                                                    back_r: uint8_t,
+                                                    back_g: uint8_t,
+                                                    back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetStyleBits(_obj: *mut ::libc::c_void,
                                          bits: ::libc::c_int) -> ();
     pub fn wxStyledTextCtrl_GetStyleBits(_obj: *mut ::libc::c_void)
@@ -8890,18 +8888,18 @@ extern "C" {
                                                 start: ::libc::c_int,
                                                 end: ::libc::c_int) -> ();
     pub fn wxStyledTextCtrl_CallTipSetBackground(_obj: *mut ::libc::c_void,
-                                                 back_r: u8,
-                                                 back_g: u8,
-                                                 back_b: u8) -> ();
+                                                 back_r: uint8_t,
+                                                 back_g: uint8_t,
+                                                 back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_CallTipSetForeground(_obj: *mut ::libc::c_void,
-                                                 fore_r: u8,
-                                                 fore_g: u8,
-                                                 fore_b: u8) -> ();
+                                                 fore_r: uint8_t,
+                                                 fore_g: uint8_t,
+                                                 fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_CallTipSetForegroundHighlight(_obj:
                                                               *mut ::libc::c_void,
-                                                          fore_r: u8,
-                                                          fore_g: u8,
-                                                          fore_b: u8)
+                                                          fore_r: uint8_t,
+                                                          fore_g: uint8_t,
+                                                          fore_b: uint8_t)
      -> ();
     pub fn wxStyledTextCtrl_VisibleFromDocLine(_obj: *mut ::libc::c_void,
                                                line: ::libc::c_int)
@@ -9011,14 +9009,14 @@ extern "C" {
                                        pixelWidth: ::libc::c_int) -> ();
     pub fn wxStyledTextCtrl_SetFoldMarginColour(_obj: *mut ::libc::c_void,
                                                 useSetting: ::libc::c_int,
-                                                back_r: u8,
-                                                back_g: u8,
-                                                back_b: u8) -> ();
+                                                back_r: uint8_t,
+                                                back_g: uint8_t,
+                                                back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetFoldMarginHiColour(_obj: *mut ::libc::c_void,
                                                   useSetting: ::libc::c_int,
-                                                  fore_r: u8,
-                                                  fore_g: u8,
-                                                  fore_b: u8) -> ();
+                                                  fore_r: uint8_t,
+                                                  fore_g: uint8_t,
+                                                  fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_LineDuplicate(_obj: *mut ::libc::c_void) -> ();
     pub fn wxStyledTextCtrl_HomeDisplay(_obj: *mut ::libc::c_void) -> ();
     pub fn wxStyledTextCtrl_HomeDisplayExtend(_obj: *mut ::libc::c_void)
@@ -9056,9 +9054,9 @@ extern "C" {
     pub fn wxStyledTextCtrl_SetEdgeMode(_obj: *mut ::libc::c_void,
                                         mode: ::libc::c_int) -> ();
     pub fn wxStyledTextCtrl_SetEdgeColour(_obj: *mut ::libc::c_void,
-                                          edgeColour_r: u8,
-                                          edgeColour_g: u8,
-                                          edgeColour_b: u8) -> ();
+                                          edgeColour_r: uint8_t,
+                                          edgeColour_g: uint8_t,
+                                          edgeColour_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SearchAnchor(_obj: *mut ::libc::c_void) -> ();
     pub fn wxStyledTextCtrl_SearchNext(_obj: *mut ::libc::c_void,
                                        flags: ::libc::c_int,
@@ -9138,16 +9136,16 @@ extern "C" {
                                                            *mut ::libc::c_void,
                                                        useSetting:
                                                            ::libc::c_int,
-                                                       fore_r: u8,
-                                                       fore_g: u8,
-                                                       fore_b: u8) -> ();
+                                                       fore_r: uint8_t,
+                                                       fore_g: uint8_t,
+                                                       fore_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetHotspotActiveBackground(_obj:
                                                            *mut ::libc::c_void,
                                                        useSetting:
                                                            ::libc::c_int,
-                                                       back_r: u8,
-                                                       back_g: u8,
-                                                       back_b: u8) -> ();
+                                                       back_r: uint8_t,
+                                                       back_g: uint8_t,
+                                                       back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_SetHotspotActiveUnderline(_obj:
                                                           *mut ::libc::c_void,
                                                       underline:
@@ -9237,9 +9235,9 @@ extern "C" {
     pub fn wxStyledTextCtrl_GetCaretLineBackground(_obj: *mut ::libc::c_void)
      -> *mut ::libc::c_void;
     pub fn wxStyledTextCtrl_SetCaretLineBackground(_obj: *mut ::libc::c_void,
-                                                   back_r: u8,
-                                                   back_g: u8,
-                                                   back_b: u8) -> ();
+                                                   back_r: uint8_t,
+                                                   back_g: uint8_t,
+                                                   back_b: uint8_t) -> ();
     pub fn wxStyledTextCtrl_GetCaretForeground(_obj: *mut ::libc::c_void)
      -> *mut ::libc::c_void;
     pub fn wxStyledTextCtrl_GetLine(_obj: *mut ::libc::c_void,
@@ -9792,34 +9790,34 @@ extern "C" {
     pub fn wxImage_Delete(image: *mut ::libc::c_void) -> ();
     pub fn wxColour_CreateFromInt(rgb: ::libc::c_int) -> *mut ::libc::c_void;
     pub fn wxColour_GetInt(colour: *mut ::libc::c_void) -> ::libc::c_int;
-    pub fn wxColour_CreateFromUnsignedInt(rgba: u32)
+    pub fn wxColour_CreateFromUnsignedInt(rgba: uint32_t)
      -> *mut ::libc::c_void;
-    pub fn wxColour_GetUnsignedInt(colour: *mut ::libc::c_void) -> u32;
+    pub fn wxColour_GetUnsignedInt(colour: *mut ::libc::c_void) -> uint32_t;
     pub fn wxcSystemSettingsGetColour(systemColour: ::libc::c_int)
      -> *mut ::libc::c_void;
-    pub fn wxcSetPixelRGB(buffer: *mut u8, width: ::libc::c_int,
+    pub fn wxcSetPixelRGB(buffer: *mut uint8_t, width: ::libc::c_int,
                           x: ::libc::c_int, y: ::libc::c_int,
                           rgb: ::libc::c_int) -> ();
-    pub fn wxcGetPixelRGB(buffer: *mut u8, width: ::libc::c_int,
+    pub fn wxcGetPixelRGB(buffer: *mut uint8_t, width: ::libc::c_int,
                           x: ::libc::c_int, y: ::libc::c_int)
      -> ::libc::c_int;
-    pub fn wxcSetPixelRowRGB(buffer: *mut u8, width: ::libc::c_int,
+    pub fn wxcSetPixelRowRGB(buffer: *mut uint8_t, width: ::libc::c_int,
                              x: ::libc::c_int, y: ::libc::c_int,
                              rgbStart: ::libc::c_int, rgbEnd: ::libc::c_int,
                              count: ::libc::c_int) -> ();
-    pub fn wxcInitPixelsRGB(buffer: *mut u8, width: ::libc::c_int,
+    pub fn wxcInitPixelsRGB(buffer: *mut uint8_t, width: ::libc::c_int,
                             height: ::libc::c_int, rgba: ::libc::c_int) -> ();
-    pub fn wxcSetPixelRGBA(buffer: *mut u8, width: ::libc::c_int,
-                           x: ::libc::c_int, y: ::libc::c_int, rgba: u32)
+    pub fn wxcSetPixelRGBA(buffer: *mut uint8_t, width: ::libc::c_int,
+                           x: ::libc::c_int, y: ::libc::c_int, rgba: uint32_t)
      -> ();
-    pub fn wxcGetPixelRGBA(buffer: *mut u8, width: ::libc::c_int,
-                           x: ::libc::c_int, y: ::libc::c_int) -> u32;
-    pub fn wxcSetPixelRowRGBA(buffer: *mut u8, width: ::libc::c_int,
+    pub fn wxcGetPixelRGBA(buffer: *mut uint8_t, width: ::libc::c_int,
+                           x: ::libc::c_int, y: ::libc::c_int) -> uint32_t;
+    pub fn wxcSetPixelRowRGBA(buffer: *mut uint8_t, width: ::libc::c_int,
                               x: ::libc::c_int, y: ::libc::c_int,
                               rgbaStart: ::libc::c_int, rgbEnd: ::libc::c_int,
-                              count: u32) -> ();
-    pub fn wxcInitPixelsRGBA(buffer: *mut u8, width: ::libc::c_int,
-                             height: ::libc::c_int, rgba: u32) -> ();
+                              count: uint32_t) -> ();
+    pub fn wxcInitPixelsRGBA(buffer: *mut uint8_t, width: ::libc::c_int,
+                             height: ::libc::c_int, rgba: uint32_t) -> ();
     pub fn wxcMalloc(size: ::libc::c_int) -> *mut ::libc::c_void;
     pub fn wxcFree(p: *mut ::libc::c_void) -> ();
     pub fn wxcWakeUpIdle() -> ();
