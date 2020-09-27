@@ -1,4 +1,7 @@
 git submodule init
 git submodule update
-python ./src/codegen.py
+no need for the rust-bindgen
+created a "fixed" _unsafe.rs for the prototypes of wxWidgets.
+changed warnings and smaller bugfixes for rust 1.0.*
+adjusted build.rs, not calling the python and _unsafe.rs creation all the times
 
