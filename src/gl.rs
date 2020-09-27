@@ -2,7 +2,7 @@ use libc::*;
 use _unsafe::*;
 use base::*;
 use core::*;
-use advanced::*;
+// use advanced::*;
 
 /// Wraps the wxWidgets' [wxGLCanvas](http://docs.wxwidgets.org/3.0/classwx_glc_anvas.html) class.
 pub struct GLCanvas { ptr: *mut c_void }

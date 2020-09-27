@@ -16,13 +16,13 @@ pub const TINY_CAPTION: c_int = 0x0080;  // clashes with NO_DEFAULT
 pub const RESIZE_BORDER: c_int = 0x0040;  // == CLOSE
 
 pub const DEFAULT_FRAME_STYLE: c_int =
-        (SYSTEM_MENU |
+        SYSTEM_MENU |
          RESIZE_BORDER |
          MINIMIZE_BOX |
          MAXIMIZE_BOX |
          CLOSE_BOX |
          CAPTION |
-         CLIP_CHILDREN);
+         CLIP_CHILDREN;
 
 // manually converted from defs.h
 
@@ -58,9 +58,9 @@ pub const FULL_REPAINT_ON_RESIZE: c_int = 0x00010000;
 pub const NO_FULL_REPAINT_ON_RESIZE: c_int = 0;
 
 pub const WINDOW_STYLE_MASK: c_int =
-    (VSCROLL|HSCROLL|BORDER_MASK|ALWAYS_SHOW_SB|CLIP_CHILDREN|
+    VSCROLL|HSCROLL|BORDER_MASK|ALWAYS_SHOW_SB|CLIP_CHILDREN|
      CLIP_SIBLINGS|TRANSPARENT_WINDOW|TAB_TRAVERSAL|WANTS_CHARS|
-     RETAINED|POPUP_WINDOW|FULL_REPAINT_ON_RESIZE);
+     RETAINED|POPUP_WINDOW|FULL_REPAINT_ON_RESIZE;
 
 pub const WS_EX_VALIDATE_RECURSIVELY: c_int = 0x00000001;
 pub const WS_EX_BLOCK_EVENTS: c_int = 0x00000002;
@@ -140,7 +140,7 @@ pub const LI_VERTICAL: c_int = VERTICAL;
 pub const YES: c_int = 0x00000002;
 pub const OK: c_int = 0x00000004;
 pub const NO: c_int = 0x00000008;
-pub const YES_NO: c_int = (YES | NO);
+pub const YES_NO: c_int = YES | NO;
 pub const CANCEL: c_int = 0x00000010;
 pub const APPLY: c_int = 0x00000020;
 pub const CLOSE: c_int = 0x00000040;
@@ -168,7 +168,7 @@ pub const SETUP: c_int = 0x00020000;
 pub const ICON_NONE: c_int = 0x00040000;
 
 pub const ICON_MASK: c_int =
-    (ICON_EXCLAMATION|ICON_HAND|ICON_QUESTION|ICON_INFORMATION|ICON_NONE);
+    ICON_EXCLAMATION|ICON_HAND|ICON_QUESTION|ICON_INFORMATION|ICON_NONE;
 
 
 // generated from /defs.h

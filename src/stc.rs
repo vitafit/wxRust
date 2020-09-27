@@ -2,7 +2,7 @@ use libc::*;
 use _unsafe::*;
 use base::*;
 use core::*;
-use advanced::*;
+// use advanced::*;
 
 /// Wraps the wxWidgets' [wxStyledTextCtrl](http://docs.wxwidgets.org/3.0/classwx_styled_text_ctrl.html) class.
 pub struct StyledTextCtrl { ptr: *mut c_void }
@@ -134,13 +134,13 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn setCodePage(&self, codePage: c_int) {
         unsafe { wxStyledTextCtrl_SetCodePage(self.ptr(), codePage) }
     }
-    fn markerDefine(&self, markerNumber: c_int, markerSymbol: c_int, foreground_r: uint8_t, foreground_g: uint8_t, foreground_b: uint8_t, background_r: uint8_t, background_g: uint8_t, background_b: uint8_t) {
+    fn markerDefine(&self, markerNumber: c_int, markerSymbol: c_int, foreground_r: u8, foreground_g: u8, foreground_b: u8, background_r: u8, background_g: u8, background_b: u8) {
         unsafe { wxStyledTextCtrl_MarkerDefine(self.ptr(), markerNumber, markerSymbol, foreground_r, foreground_g, foreground_b, background_r, background_g, background_b) }
     }
-    fn markerSetForeground(&self, markerNumber: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn markerSetForeground(&self, markerNumber: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_MarkerSetForeground(self.ptr(), markerNumber, fore_r, fore_g, fore_b) }
     }
-    fn markerSetBackground(&self, markerNumber: c_int, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn markerSetBackground(&self, markerNumber: c_int, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_MarkerSetBackground(self.ptr(), markerNumber, back_r, back_g, back_b) }
     }
     fn markerAdd(&self, line: c_int, markerNumber: c_int) -> c_int {
@@ -191,10 +191,10 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn styleClearAll(&self) {
         unsafe { wxStyledTextCtrl_StyleClearAll(self.ptr()) }
     }
-    fn styleSetForeground(&self, style: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn styleSetForeground(&self, style: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_StyleSetForeground(self.ptr(), style, fore_r, fore_g, fore_b) }
     }
-    fn styleSetBackground(&self, style: c_int, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn styleSetBackground(&self, style: c_int, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_StyleSetBackground(self.ptr(), style, back_r, back_g, back_b) }
     }
     fn styleSetBold(&self, style: c_int, bold: c_int) {
@@ -228,13 +228,13 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn styleSetHotSpot(&self, style: c_int, hotspot: c_int) {
         unsafe { wxStyledTextCtrl_StyleSetHotSpot(self.ptr(), style, hotspot) }
     }
-    fn setSelForeground(&self, useSetting: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn setSelForeground(&self, useSetting: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_SetSelForeground(self.ptr(), useSetting, fore_r, fore_g, fore_b) }
     }
-    fn setSelBackground(&self, useSetting: c_int, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn setSelBackground(&self, useSetting: c_int, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_SetSelBackground(self.ptr(), useSetting, back_r, back_g, back_b) }
     }
-    fn setCaretForeground(&self, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn setCaretForeground(&self, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_SetCaretForeground(self.ptr(), fore_r, fore_g, fore_b) }
     }
     fn cmdKeyAssign(&self, key: c_int, modifiers: c_int, cmd: c_int) {
@@ -274,13 +274,13 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn indicatorGetStyle(&self, indic: c_int) -> c_int {
         unsafe { wxStyledTextCtrl_IndicatorGetStyle(self.ptr(), indic) }
     }
-    fn indicatorSetForeground(&self, indic: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn indicatorSetForeground(&self, indic: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_IndicatorSetForeground(self.ptr(), indic, fore_r, fore_g, fore_b) }
     }
-    fn setWhitespaceForeground(&self, useSetting: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn setWhitespaceForeground(&self, useSetting: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_SetWhitespaceForeground(self.ptr(), useSetting, fore_r, fore_g, fore_b) }
     }
-    fn setWhitespaceBackground(&self, useSetting: c_int, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn setWhitespaceBackground(&self, useSetting: c_int, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_SetWhitespaceBackground(self.ptr(), useSetting, back_r, back_g, back_b) }
     }
     fn setStyleBits(&self, bits: c_int) {
@@ -607,13 +607,13 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn callTipSetHighlight(&self, start: c_int, end: c_int) {
         unsafe { wxStyledTextCtrl_CallTipSetHighlight(self.ptr(), start, end) }
     }
-    fn callTipSetBackground(&self, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn callTipSetBackground(&self, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_CallTipSetBackground(self.ptr(), back_r, back_g, back_b) }
     }
-    fn callTipSetForeground(&self, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn callTipSetForeground(&self, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_CallTipSetForeground(self.ptr(), fore_r, fore_g, fore_b) }
     }
-    fn callTipSetForegroundHighlight(&self, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn callTipSetForegroundHighlight(&self, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_CallTipSetForegroundHighlight(self.ptr(), fore_r, fore_g, fore_b) }
     }
     fn visibleFromDocLine(&self, line: c_int) -> c_int {
@@ -741,10 +741,10 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn linesSplit(&self, pixelWidth: c_int) {
         unsafe { wxStyledTextCtrl_LinesSplit(self.ptr(), pixelWidth) }
     }
-    fn setFoldMarginColour(&self, useSetting: c_int, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn setFoldMarginColour(&self, useSetting: c_int, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_SetFoldMarginColour(self.ptr(), useSetting, back_r, back_g, back_b) }
     }
-    fn setFoldMarginHiColour(&self, useSetting: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn setFoldMarginHiColour(&self, useSetting: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_SetFoldMarginHiColour(self.ptr(), useSetting, fore_r, fore_g, fore_b) }
     }
     fn lineDuplicate(&self) {
@@ -804,7 +804,7 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn setEdgeMode(&self, mode: c_int) {
         unsafe { wxStyledTextCtrl_SetEdgeMode(self.ptr(), mode) }
     }
-    fn setEdgeColour(&self, edgeColour_r: uint8_t, edgeColour_g: uint8_t, edgeColour_b: uint8_t) {
+    fn setEdgeColour(&self, edgeColour_r: u8, edgeColour_g: u8, edgeColour_b: u8) {
         unsafe { wxStyledTextCtrl_SetEdgeColour(self.ptr(), edgeColour_r, edgeColour_g, edgeColour_b) }
     }
     fn searchAnchor(&self) {
@@ -914,10 +914,10 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn getPrintWrapMode(&self) -> c_int {
         unsafe { wxStyledTextCtrl_GetPrintWrapMode(self.ptr()) }
     }
-    fn setHotspotActiveForeground(&self, useSetting: c_int, fore_r: uint8_t, fore_g: uint8_t, fore_b: uint8_t) {
+    fn setHotspotActiveForeground(&self, useSetting: c_int, fore_r: u8, fore_g: u8, fore_b: u8) {
         unsafe { wxStyledTextCtrl_SetHotspotActiveForeground(self.ptr(), useSetting, fore_r, fore_g, fore_b) }
     }
-    fn setHotspotActiveBackground(&self, useSetting: c_int, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn setHotspotActiveBackground(&self, useSetting: c_int, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_SetHotspotActiveBackground(self.ptr(), useSetting, back_r, back_g, back_b) }
     }
     fn setHotspotActiveUnderline(&self, underline: c_int) {
@@ -1019,7 +1019,7 @@ pub trait StyledTextCtrlMethods : ControlMethods {
     fn getCaretLineBackground(&self) -> Colour {
         unsafe { Colour::from(wxStyledTextCtrl_GetCaretLineBackground(self.ptr())) }
     }
-    fn setCaretLineBackground(&self, back_r: uint8_t, back_g: uint8_t, back_b: uint8_t) {
+    fn setCaretLineBackground(&self, back_r: u8, back_g: u8, back_b: u8) {
         unsafe { wxStyledTextCtrl_SetCaretLineBackground(self.ptr(), back_r, back_g, back_b) }
     }
     fn getCaretForeground(&self) -> Colour {

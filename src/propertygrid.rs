@@ -2,7 +2,7 @@ use libc::*;
 use _unsafe::*;
 use base::*;
 use core::*;
-use advanced::*;
+// use advanced::*;
 
 /// Wraps the wxWidgets' [wxPropertyGrid](http://docs.wxwidgets.org/3.0/classwx_property_grid.html) class.
 pub struct PropertyGrid { ptr: *mut c_void }
